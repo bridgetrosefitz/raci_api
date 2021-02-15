@@ -1,0 +1,2 @@
+class FunctionsController < ApplicationController
+end
