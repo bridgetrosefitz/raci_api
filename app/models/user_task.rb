@@ -7,4 +7,5 @@ class UserTask < ApplicationRecord
   def project
     self.task.project
   end
+
 end

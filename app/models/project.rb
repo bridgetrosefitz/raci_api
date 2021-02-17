@@ -22,6 +22,12 @@ class Project < ApplicationRecord
     User.find(self.creator_id)
   end
 
+  def user_tasks
+    self.tasks.map do |task| 
+      task.user_tasks
+    end.flatten
+  end
+
   #  def members_names
 
     #  array =  self.tasks.map do |task|
