@@ -1,4 +1,4 @@
 class TaskSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :text, :project_id, :user_tasks, :members
 end

@@ -11,14 +11,26 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    project = Project.create(name: params[:name], creator_id: params[:creator_id])
+    project = Project.create(project_params)
     render json: ProjectSerializer.new(project)
   end
-  
-  # def update
-  # end
-    
-  # def destroy
-  # end
+
+  def update
+    project = Project.find(params[:id])
+    project.update(project_params)
+    render json: ProjectSerializer.new(project)
+  end
+
+  def destroy
+    project = Project.find(params[:id])
+    project.delete
+    render json: "Successfully deleted"
+  end
+
+  private
+
+  def project_params
+    params.require(:project).permit(:name, :creator_id)
+  end
 
 end
