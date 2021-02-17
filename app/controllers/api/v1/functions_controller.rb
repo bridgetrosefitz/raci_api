@@ -1,4 +1,4 @@
-class FunctionsController < ApplicationController
+class Api::V1::FunctionsController < ApplicationController
 
   def index
     functions = Function.all

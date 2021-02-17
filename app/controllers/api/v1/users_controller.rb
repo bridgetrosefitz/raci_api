@@ -1,7 +1,6 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
 
   def create
-    debugger
     user = User.create!(user_params)
     render json: UserSerializer.new(user)
   end

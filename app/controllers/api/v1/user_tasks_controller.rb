@@ -1,4 +1,4 @@
-class UserTasksController < ApplicationController
+class Api::V1::UserTasksController < ApplicationController
 
   def index
     user_tasks = UserTask.all
