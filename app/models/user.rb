@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  validates :email, presence: true, uniqueness: true
 
   has_many :projects, class_name: "Project", foreign_key: "creator_id"
   has_many :user_tasks

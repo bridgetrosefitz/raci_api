@@ -5,7 +5,10 @@ Rails.application.routes.draw do
       resources :functions, only: [:index]
       resources :tasks, only: [:index, :show, :create, :update, :destroy]
       resources :projects, only: [:index, :show, :create, :update, :destroy]
-      resources :users, only: [:create]
+
+      post "/signup", to: "users#create"
+      post '/login', to: 'auth#create'
+      get '/profile', to: 'users#profile'
     end  
   end
   

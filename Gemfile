@@ -41,3 +41,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'fast_jsonapi'
+
+# https://github.com/jwt/ruby-jwt
+gem 'jwt'
