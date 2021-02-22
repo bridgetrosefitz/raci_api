@@ -1,11 +1,20 @@
 class ApplicationController < ActionController::API
 
+  def encode_token(user)
+    payload = { user_id: user.id }
+    JWT.encode(payload, secret, 'HS256')
+  end
+  
+  def secret
+    Rails.application.credentials.jwt_secret
+  end
+  
   def token
     request.headers["Authorization"].split(" ")[1]
   end
 
   def decoded_token
-    JWT.decode(token, "codingiscool", true, { algorithm: "HS256"})
+    JWT.decode(token, secret, true, { algorithm: "HS256"})
   end
 
   def current_user
@@ -14,3 +23,4 @@ class ApplicationController < ActionController::API
   end
 
 end
+
