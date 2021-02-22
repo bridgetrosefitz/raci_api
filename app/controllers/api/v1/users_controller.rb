@@ -13,12 +13,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def profile
-    token = request.headers["Authorization"].split(" ")[1]
-    decoded_token = JWT.decode(token, "codingiscool", true, { algorithm: "HS256"} )
-    user_id = decoded_token[0]["user_id"]
-    user = User.find(user_id)
-
-    render json: user
+    render json: current_user
   end
 
   private
