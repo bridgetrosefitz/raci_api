@@ -2,26 +2,47 @@ class ProjectSerializer
   include FastJsonapi::ObjectSerializer
   attributes :name, :creator, :members
 
-attributes :tasks do |project|
-    debugger  
+attributes :tasks do |project|  
     project.tasks.map do |task| 
-        # debugger
-        {
-          id: task.id,
-          task_name: task.text
-          responsible: [
-            {
+        responsible = []
+        accountable = []
+        consulted = []
+        informed = []
+        task.user_tasks.each do |user_task|
+          user_task_hash = {
               user_task_id: task.user_task.id,
               function_id: task.user_task.function_id,
-
+              user_id: task.user_task.user_id,
+              user_full_name: task.user_task.user.full_name
             }
-          ]
+
+          if user_task.function_id == 1
+            responsible << user_task_hash
+          elsif user_task.function_id == 1
+          elsif user_task.function_id == 1
+          elsif user_task.function_id == 1
+          end
+        end
+        
+        {
+          id: task.id,
+          task_name: task.text,
+          responsible: responsible
         }
       end
     end
 
 
 end
+
+[
+            {
+              user_task_id: task.user_task.id,
+              function_id: task.user_task.function_id,
+              user_id: task.user_task.user_id,
+              user_full_name: task.user_task.user.full_name
+            }
+          ]
 
 # {
 #   id: 1,
