@@ -10,39 +10,37 @@ attributes :tasks do |project|
         informed = []
         task.user_tasks.each do |user_task|
           user_task_hash = {
-              user_task_id: task.user_task.id,
-              function_id: task.user_task.function_id,
-              user_id: task.user_task.user_id,
-              user_full_name: task.user_task.user.full_name
-            }
+            user_task_id: user_task.id,
+            function_id: user_task.function_id,
+            user_id: user_task.user_id,
+            task_id: user_task.task_id,
+            user_full_name: user_task.user.full_name
+          }
 
           if user_task.function_id == 1
             responsible << user_task_hash
-          elsif user_task.function_id == 1
-          elsif user_task.function_id == 1
-          elsif user_task.function_id == 1
+          elsif user_task.function_id == 2
+            accountable << user_task_hash
+          elsif user_task.function_id == 3
+            consulted << user_task_hash
+          elsif user_task.function_id == 4
+            informed << user_task_hash
           end
         end
         
         {
           id: task.id,
           task_name: task.text,
-          responsible: responsible
+          responsible: responsible,
+          accountable: accountable,
+          consulted: consulted,
+          informed: informed
         }
       end
     end
 
 
 end
-
-[
-            {
-              user_task_id: task.user_task.id,
-              function_id: task.user_task.function_id,
-              user_id: task.user_task.user_id,
-              user_full_name: task.user_task.user.full_name
-            }
-          ]
 
 # {
 #   id: 1,
