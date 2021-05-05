@@ -24,3 +24,11 @@ class ApplicationController < ActionController::API
 
 end
 
+# { "user_id" => 3 } -> ruby
+# { "user_id": 3 } -> javascript
+# { "user_id": 3 } -> json
+
+{ sup: 'hi'}
+{ :sup => 'hi'}
+{'sup' => 'hi'}
+{ "sup": 'hi'}
