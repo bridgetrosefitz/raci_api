@@ -8,8 +8,9 @@ class TaskSerializer
 
     attributes :user_tasks do |task|
       task.user_tasks.map do |user_task| 
-        # debugger
         {
+          user_id: user_task.user_id,
+          function_id: user_task.function_id,
           user_task_id: user_task.id,
           full_name: user_task.user.full_name,
           function: user_task.function.name,
