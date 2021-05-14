@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :memberships
   namespace :api do
     namespace :v1 do
       resources :user_tasks, only: [:index, :create, :update, :destroy]

@@ -2,20 +2,15 @@ class Project < ApplicationRecord
 
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"
   has_many :tasks
+  has_many :memberships
+  has_many :members, through: :memberships, source: :user
+  # Note: If the foreign_key is the same as the class name, you don't need to specify foreign_key
+
 
   def task_list
     self.tasks.map do |task|
       task.text
     end
-  end
-
-  def members
-    users_on_all_tasks = self.tasks.map do |task|
-      task.users
-    end
-    users_on_all_tasks_flattened = users_on_all_tasks.flatten
-    unique_users = users_on_all_tasks_flattened.uniq
-
   end
 
   def creator
