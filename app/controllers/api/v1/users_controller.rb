@@ -14,6 +14,10 @@ class Api::V1::UsersController < ApplicationController
     render json: current_user
   end
 
+  def index
+    render json: UserSerializer.new(User.all)
+  end
+
   private
 
   def user_params

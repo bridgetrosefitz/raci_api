@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :user_tasks, only: [:index, :create, :update, :destroy]
       resources :functions, only: [:index]
+      resources :users, only: [:index]
       resources :tasks, only: [:index, :show, :create, :update, :destroy]
       resources :projects, only: [:index, :show, :create, :update, :destroy]
 
