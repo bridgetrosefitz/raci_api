@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :user_tasks, only: [:index, :create, :update, :destroy]
       resources :functions, only: [:index]
       resources :users, only: [:index]
+      resources :memberships, only: [:create, :destroy]
       resources :tasks, only: [:index, :show, :create, :update, :destroy]
       resources :projects, only: [:index, :show, :create, :update, :destroy]
 
