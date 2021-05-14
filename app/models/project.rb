@@ -1,8 +1,8 @@
 class Project < ApplicationRecord
 
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"
-  has_many :tasks
-  has_many :memberships
+  has_many :tasks, dependent: :destroy
+  has_many :memberships, dependent: :destroy
   has_many :members, through: :memberships, source: :user
   # Note: If the foreign_key is the same as the class name, you don't need to specify foreign_key
 

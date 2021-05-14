@@ -23,7 +23,7 @@ class Api::V1::ProjectsController < ApplicationController
 
   def destroy
     project = Project.find(params[:id])
-    project.delete
+    project.destroy
     render json: "Successfully deleted"
   end
 

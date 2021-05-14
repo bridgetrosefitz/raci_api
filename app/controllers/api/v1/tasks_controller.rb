@@ -29,7 +29,7 @@ class Api::V1::TasksController < ApplicationController
 
   def destroy
     task = Task.find(params[:id])
-    task.delete
+    task.destroy
     render json: "Successfully deleted"
   end
 
