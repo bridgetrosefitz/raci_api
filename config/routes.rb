@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :flags
   resources :memberships
   namespace :api do
     namespace :v1 do
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
       resources :memberships, only: [:create, :destroy]
       resources :tasks, only: [:index, :show, :create, :update, :destroy]
       resources :projects, only: [:index, :show, :create, :update, :destroy]
+      resources :flags, only: [:create, :destroy]
 
       post "/signup", to: "users#create"
       post '/login', to: 'auth#create'

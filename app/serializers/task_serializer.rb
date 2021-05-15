@@ -6,6 +6,17 @@ class TaskSerializer
   # attributes :high_score do |object|
   #   object.games.map(&:score).max
 
+    attributes :flags do |task|
+      task.flags.map do |flag| 
+        {
+          flag_id: flag.id,
+          user_id: flag.user_id,
+          user_initials: flag.user.initials
+
+        }
+      end
+    end
+
     attributes :user_tasks do |task|
       task.user_tasks.map do |user_task| 
         {

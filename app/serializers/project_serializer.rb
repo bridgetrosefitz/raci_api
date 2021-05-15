@@ -40,13 +40,18 @@ attributes :tasks do |project|
           end
         end
         
+        user_flags = task.flags.map do |flag| 
+          {flag_id: flag.id, user_id: flag.user_id, user_initials: flag.user.initials}
+        end
+
         {
           id: task.id,
           task_name: task.text,
           responsible: responsible,
           accountable: accountable,
           consulted: consulted,
-          informed: informed
+          informed: informed,
+          flags: user_flags
         }
       end
     end

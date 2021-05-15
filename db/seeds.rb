@@ -46,3 +46,5 @@ UserTask.create!(task_id: 4, function_id: 4, user_id: 2)
 Membership.create!(user_id: 1, project_id: 2)
 Membership.create!(user_id: 2, project_id: 2)
 Membership.create!(user_id: 3, project_id: 2)
+
+Flag.create!(user_id: 1, task_id: 1)

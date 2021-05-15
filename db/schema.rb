@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_232202) do
+ActiveRecord::Schema.define(version: 2021_05_14_192313) do
+
+  create_table "flags", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "task_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_flags_on_task_id"
+    t.index ["user_id"], name: "index_flags_on_user_id"
+  end
 
   create_table "functions", force: :cascade do |t|
     t.string "name"
@@ -59,6 +68,8 @@ ActiveRecord::Schema.define(version: 2021_05_13_232202) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "flags", "tasks"
+  add_foreign_key "flags", "users"
   add_foreign_key "memberships", "projects"
   add_foreign_key "memberships", "users"
 end

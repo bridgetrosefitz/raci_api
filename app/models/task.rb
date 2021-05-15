@@ -3,6 +3,8 @@ class Task < ApplicationRecord
   belongs_to :project
   has_many :user_tasks, dependent: :destroy
   has_many :users, through: :user_tasks
+  has_many :flags, dependent: :destroy
+  has_many :flagged_users, through: :flags, source: :user
 
   def members
     users = self.users
