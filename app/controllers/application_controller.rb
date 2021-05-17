@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
 
+  before_action :current_user
+
   def encode_token(user)
     payload = { user_id: user.id }
     JWT.encode(payload, secret, 'HS256')
@@ -28,7 +30,7 @@ end
 # { "user_id": 3 } -> javascript
 # { "user_id": 3 } -> json
 
-{ sup: 'hi'}
-{ :sup => 'hi'}
-{'sup' => 'hi'}
-{ "sup": 'hi'}
+# { sup: 'hi'}
+# { :sup => 'hi'}
+# {'sup' => 'hi'}
+# { "sup": 'hi'}
