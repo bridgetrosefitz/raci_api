@@ -43,6 +43,10 @@ UserTask.create!(task_id: 4, function_id: 3, user_id: 1)
 UserTask.create!(task_id: 4, function_id: 3, user_id: 2)
 UserTask.create!(task_id: 4, function_id: 4, user_id: 2)
 
+Membership.create!(user_id: 1, project_id: 1)
+Membership.create!(user_id: 2, project_id: 1)
+Membership.create!(user_id: 3, project_id: 1)
+
 Membership.create!(user_id: 1, project_id: 2)
 Membership.create!(user_id: 2, project_id: 2)
 Membership.create!(user_id: 3, project_id: 2)
