@@ -11,7 +11,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def profile
-    render json: current_user
+    user = current_user
+    render json: UserSerializer.new(current_user)
   end
 
   def index
