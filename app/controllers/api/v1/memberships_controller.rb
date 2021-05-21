@@ -1,5 +1,5 @@
 class Api::V1::MembershipsController < ApplicationController
-   def create
+  def create
     membership = Membership.new(membership_params)
     if membership.valid?
       membership.save!

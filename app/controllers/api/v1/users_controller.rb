@@ -1,13 +1,14 @@
 class Api::V1::UsersController < ApplicationController
   
   skip_before_action :current_user, only: [:create]
-  
-  def create
-    user = User.create!(user_params)
 
+    def create
+      user = User.new(user_params)
     if user.valid?
+      user.save!
       render json: {token: encode_token(user)}
     else
+      
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity 
     end
   end
