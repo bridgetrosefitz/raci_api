@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
-  validates :email, presence: true, uniqueness: true
+  validates :first_name, :last_name, :email, :password, presence: {message: 'must be provided, please'}
+  validates :email, presence: true, uniqueness: {message: 'is being used by another account'}
+  
 
   has_many :projects, class_name: "Project", foreign_key: "creator_id", dependent: :destroy
   has_many :user_tasks, dependent: :destroy
