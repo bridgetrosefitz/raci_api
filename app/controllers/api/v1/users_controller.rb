@@ -22,6 +22,12 @@ class Api::V1::UsersController < ApplicationController
     render json: UserSerializer.new(User.all)
   end
 
+  def available_projects
+    user = current_user
+    available_projects = user.available_projects
+    render json: ProjectSerializer.new(available_projects)
+  end
+
   private
 
   def user_params

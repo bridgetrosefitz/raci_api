@@ -19,4 +19,15 @@ class User < ApplicationRecord
   def initials
     "#{first_name[0]}#{last_name[0]}"
   end
+
+  def available_projects
+    # Returns all projects on which the current_user is the creator or a member
+    available = []
+    available << Project.where(creator: self)
+    available << self.memberships.map do |membership| membership.project end
+    # Flatten
+    available_flattened = available.flatten
+    # Remove duplicates
+    available_unique = available_flattened.uniq
+  end
 end

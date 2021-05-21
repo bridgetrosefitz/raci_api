@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       post "/signup", to: "users#create"
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
+      get '/available_projects', to: 'users#available_projects'
     end  
   end
   
