@@ -3,13 +3,15 @@ class ProjectSerializer
   attributes :name, :creator
 
 attributes :members do |project|  
-  project.members.map do |member|
+  project.memberships.map do |membership|
+
     {
-      id: member.id,
-      full_name: member.full_name,
-      first_name: member.first_name,
-      last_name: member.last_name,
-      initials: member.initials
+      id: membership.user.id,
+      full_name: membership.user.full_name,
+      first_name: membership.user.first_name,
+      last_name: membership.user.last_name,
+      initials: membership.user.initials,
+      membership_id: membership.id
     }
   end
 end
