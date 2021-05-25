@@ -11,8 +11,9 @@ class TaskSerializer
         {
           flag_id: flag.id,
           user_id: flag.user_id,
-          user_initials: flag.user.initials
-
+          user_initials: flag.user.initials,
+          user_full_name: flag.user.full_name,
+          user_first_name_last_initial: flag.user_first_name_last_initial
         }
       end
     end

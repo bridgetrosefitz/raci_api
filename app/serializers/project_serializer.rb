@@ -11,6 +11,7 @@ attributes :members do |project|
       first_name: membership.user.first_name,
       last_name: membership.user.last_name,
       initials: membership.user.initials,
+      first_name_last_initial: membership.user.first_name_last_initial,
       membership_id: membership.id
     }
   end
@@ -28,7 +29,9 @@ attributes :tasks do |project|
             function_id: user_task.function_id,
             user_id: user_task.user_id,
             task_id: user_task.task_id,
-            user_full_name: user_task.user.full_name
+            user_full_name: user_task.user.full_name,
+            user_first_name: user_task.user.first_name,
+            user_first_name_last_initial: user_task.user.first_name_last_initial
           }
 
           if user_task.function_id == 1

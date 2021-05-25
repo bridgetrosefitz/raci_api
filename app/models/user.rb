@@ -20,6 +20,10 @@ class User < ApplicationRecord
     "#{first_name[0]}#{last_name[0]}"
   end
 
+  def first_name_last_initial
+    "#{first_name} #{last_name[0]}."
+  end
+
   def available_projects
     # Returns all projects on which the current_user is the creator or a member
     available = []
