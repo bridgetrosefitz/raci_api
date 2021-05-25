@@ -6,6 +6,8 @@ class Task < ApplicationRecord
   has_many :flags, dependent: :destroy
   has_many :flagged_users, through: :flags, source: :user
 
+  default_scope { order(created_at: :asc)}
+
   def members
     users = self.users
     unique_users = users.uniq
