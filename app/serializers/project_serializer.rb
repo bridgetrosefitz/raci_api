@@ -46,7 +46,14 @@ attributes :tasks do |project|
         end
         
         user_flags = task.flags.map do |flag| 
-          {flag_id: flag.id, user_id: flag.user_id, user_initials: flag.user.initials}
+          {
+            flag_id: flag.id, 
+            user_id: flag.user_id, 
+            user_initials: flag.user.initials,
+            user_full_name: flag.user.full_name,
+            user_first_name: flag.user.first_name,
+            user_first_name_last_initial: flag.user.first_name_last_initial
+          }
         end
 
         {
