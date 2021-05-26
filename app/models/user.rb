@@ -34,4 +34,9 @@ class User < ApplicationRecord
     # Remove duplicates
     available_unique = available_flattened.uniq
   end
+
+  def member?(project_id)
+    project = Project.find(project_id)
+    project.members.include?(self)
+  end
 end
