@@ -6,8 +6,8 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def show
-    if current_user.member?(params[:id])
-      project = Project.find(params[:id])
+    project = Project.find(params[:id])
+    if current_user.member?(params[:id]) || project.creator == current_user
       render json: ProjectSerializer.new(project)
     else
       render json: {errors: ["Not authorized"]}, status: :unauthorized
