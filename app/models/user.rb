@@ -1,9 +1,12 @@
 class User < ApplicationRecord
   has_secure_password
+
   validates :first_name, :last_name, :email, :password, presence: {message: 'must be provided, please'}
   validates :email, presence: true, uniqueness: {message: 'is being used by another account'}
-  
 
+  before_save { self.first_name = first_name.capitalize }
+  before_save { self.last_name = last_name.capitalize }
+  
   has_many :projects, class_name: "Project", foreign_key: "creator_id", dependent: :destroy
   has_many :user_tasks, dependent: :destroy
   has_many :tasks, through: :user_tasks
