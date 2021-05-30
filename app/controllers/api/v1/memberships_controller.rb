@@ -11,7 +11,7 @@ class Api::V1::MembershipsController < ApplicationController
 
   def destroy
     membership = Membership.find(params[:id])
-    membership.delete
+    membership.destroy
     render json: "Successfully deleted"
   end
 
