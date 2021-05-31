@@ -14,6 +14,8 @@ attributes :members do |project|
       first_name_last_initial: membership.user.first_name_last_initial,
       membership_id: membership.id
     }
+  end.sort_by do |membership_hash| 
+    membership_hash[:last_name]
   end
 end
 

@@ -5,6 +5,9 @@ class Membership < ApplicationRecord
   
   before_destroy :destroy_user_tasks
 
+  # default_scope { order(created_at: :asc)}
+  # scope :desc, order("memberships.last_name DESC")
+
   def destroy_user_tasks
 
     user = self.user
