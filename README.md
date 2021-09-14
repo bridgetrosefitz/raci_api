@@ -2,4 +2,4 @@
 
 🤓 This repo contains the API for [this RACI project management app](https://raci.team), an interface for implementing the Responsible-Accountable-Consulted-Informed framework for roles on a team. 
 
-👉 View the full README in the [front-end repo](https://github.com/bridgetrosefitz/raci).
+👉 View the full README including ERD for this API in the [front-end repo](https://github.com/bridgetrosefitz/raci).
